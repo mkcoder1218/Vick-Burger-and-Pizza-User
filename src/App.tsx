@@ -488,16 +488,16 @@ export default function App() {
                   cart.map((item) => {
                     const menuItem = menuItems.find((m) => m.id === item.menuItemId);
                     return (
-                      <div key={item.menuItemId} className="bg-white p-6 rounded-3xl flex gap-6 items-center shadow-xl shadow-burger-black/5 border-2 border-burger-black/5">
-                        <img src={menuItem?.image} className="w-20 h-20 rounded-2xl object-cover" referrerPolicy="no-referrer" />
-                        <div className="flex-1">
-                          <h4 className="font-black uppercase tracking-tight text-lg">{menuItem?.name}</h4>
+                      <div key={item.menuItemId} className="bg-white p-6 rounded-3xl flex gap-4 items-center shadow-xl shadow-burger-black/5 border-2 border-burger-black/5">
+                        <img src={menuItem?.image} className="w-20 h-20 rounded-2xl object-cover shrink-0" referrerPolicy="no-referrer" />
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-black uppercase tracking-tight text-lg truncate">{menuItem?.name}</h4>
                           <p className="text-burger-orange font-black">{currency} {menuItem?.price.toFixed(0)}</p>
                         </div>
-                        <div className="flex items-center gap-4 bg-burger-cream p-2 rounded-2xl">
-                          <button onClick={() => updateCartQuantity(item.menuItemId, -1)} className="w-8 h-8 flex items-center justify-center font-black text-xl">-</button>
+                        <div className="flex items-center gap-2 bg-burger-cream px-3 py-2 rounded-2xl shrink-0">
+                          <button onClick={() => updateCartQuantity(item.menuItemId, -1)} className="w-8 h-8 flex items-center justify-center font-black text-xl rounded-xl hover:bg-white/70">-</button>
                           <span className="font-black w-4 text-center">{item.quantity}</span>
-                          <button onClick={() => updateCartQuantity(item.menuItemId, 1)} className="w-8 h-8 flex items-center justify-center font-black text-xl">+</button>
+                          <button onClick={() => updateCartQuantity(item.menuItemId, 1)} className="w-8 h-8 flex items-center justify-center font-black text-xl rounded-xl hover:bg-white/70">+</button>
                         </div>
                       </div>
                     );
